@@ -9,4 +9,18 @@ app:get("index", "/", function()
   }
 end)
 
+app:get("wishlist", "/wishlist", function(self)
+  self.items = {
+    "Teddybär",
+    "Badewanne",
+    "Klamotten",
+    "Hilfe",
+    "Blumen",
+  }
+
+  return {
+    render = "wishlist",
+  }
+end)
+
 return app
