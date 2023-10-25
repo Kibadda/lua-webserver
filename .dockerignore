@@ -1,0 +1,9 @@
+*
+!app.lua
+!config.lua
+!mime.types
+!models.lua
+!nginx.conf
+!resources/
+!static/
+!views/

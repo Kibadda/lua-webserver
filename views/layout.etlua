@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= title or "Lapis" %></title>
+
+    <link rel="stylesheet" href="/static/css/app.css"/>
+    <script type="text/javascript" src="/static/js/app.js" defer></script>
+  </head>
+  <body>
+    <% content_for("inner") %>
+  </body>
+</html>
