@@ -24,4 +24,4 @@ EXPOSE 8080
 
 VOLUME /home/lua-webserver
 
-CMD ["lapis", "server"]
+ENTRYPOINT ["./entrypoint.sh"]
