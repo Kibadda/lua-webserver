@@ -7,7 +7,7 @@ migrate:
 	docker run -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest migrate
 
 bash:
-	docker run -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest bash
+	docker run -p 8080:8080 -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest bash
 
 db:
 	docker run -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest db
