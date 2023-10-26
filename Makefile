@@ -1,4 +1,4 @@
-.PHONY: build serve sass
+.PHONY: build serve sass migrate bash db
 
 build:
 	docker build -t lua-webserver .
@@ -8,6 +8,9 @@ migrate:
 
 bash:
 	docker run -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest bash
+
+db:
+	docker run -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest db
 
 serve:
 	docker run -p 8080:8080 -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest serve

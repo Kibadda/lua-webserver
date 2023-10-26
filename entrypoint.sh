@@ -22,6 +22,11 @@ case "$1" in
     bash
     ;;
 
+  db)
+    echo "starting database"
+    sqlite3 database/db.sqlite
+    ;;
+
   *)
     echo "$1 is not a valid option"
     exit 1
