@@ -1,9 +1,10 @@
-local csrf = require "lapis.csrf"
 local respond_to = require("lapis.application").respond_to
 local capture_errors = require("lapis.application").capture_errors
 
 return function(app)
-  app:get("index", "/", function()
+  app:get("index", "/", function(self)
+    self.title = "Wunschliste"
+
     return { render = "wishlist" }
   end)
 
@@ -11,11 +12,13 @@ return function(app)
     "login",
     "/login",
     respond_to {
-      GET = function()
+      GET = function(self)
+        self.title = "Login"
+
         return { render = true }
       end,
       POST = capture_errors(function(self)
-        csrf.assert_token(self)
+        require("lapis.csrf").assert_token(self)
 
         local User = require "models.User"
 
@@ -39,7 +42,7 @@ return function(app)
   )
 
   app:post("logout", "/logout", function(self)
-    csrf.assert_token(self)
+    require("lapis.csrf").assert_token(self)
 
     self.session.user = nil
 
