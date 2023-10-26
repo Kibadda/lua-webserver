@@ -7,3 +7,4 @@
 !resources/
 !static/
 !views/
+!db.sqlite

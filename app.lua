@@ -1,26 +1,26 @@
 local lapis = require "lapis"
 local app = lapis.Application()
+local respond_to = require("lapis.application").respond_to
 app:enable "etlua"
 app.layout = require "views.layout"
 
-app:get("index", "/", function()
-  return {
-    render = "index",
+app:match(
+  "index",
+  "/",
+  respond_to {
+    GET = function()
+      return { render = true }
+    end,
+    POST = function(self)
+      local WishlistItem = require "models.WishlistItem"
+      WishlistItem:create(self.params)
+      return { redirect_to = self:url_for "index" }
+    end,
   }
-end)
+)
 
-app:get("wishlist", "/wishlist", function(self)
-  self.items = {
-    "Teddybär",
-    "Badewanne",
-    "Klamotten",
-    "Hilfe",
-    "Blumen",
-  }
-
-  return {
-    render = "wishlist",
-  }
+app:get("wishlist", "/wishlist", function()
+  return { render = true }
 end)
 
 return app

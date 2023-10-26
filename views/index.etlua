@@ -1,0 +1,5 @@
+<form method="POST" action='<% url_for"index" %>'>
+  <input type="text" name="name" />
+  <input type="text" name="url" />
+  <button type="submit">create</button>
+</form>

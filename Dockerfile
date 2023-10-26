@@ -1,8 +1,8 @@
-FROM debian:bullseye
+FROM debian:bookworm
 
 RUN apt-get update
 
-RUN apt-get -y install --no-install-recommends wget gnupg ca-certificates build-essential
+RUN apt-get -y install --no-install-recommends wget gnupg ca-certificates build-essential sqlite3
 
 RUN wget -O - https://openresty.org/package/pubkey.gpg | apt-key add -
 
@@ -12,7 +12,9 @@ RUN apt-get update
 
 RUN apt-get -y install --no-install-recommends openresty
 
-RUN apt-get -y install --no-install-recommends luarocks libssl-dev
+RUN apt-get -y install --no-install-recommends luarocks libssl-dev libsqlite3-dev
+
+RUN luarocks install lsqlite3
 
 RUN luarocks install lapis
 
