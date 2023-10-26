@@ -7,4 +7,7 @@ config("development", {
   sqlite = {
     database = "database/db.sqlite",
   },
+  session_name = "wishlist_session",
 })
+
+config("development", require "secret")

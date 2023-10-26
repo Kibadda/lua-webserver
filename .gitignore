@@ -7,3 +7,4 @@ uwsgi_temp/
 nginx.conf.compiled
 static/css/*.css
 static/css/*.css.map
+secret.lua
