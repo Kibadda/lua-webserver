@@ -3,7 +3,7 @@ local Widget = require("lapis.html").Widget
 
 local WishlistItem = require "models.WishlistItem"
 
-return Widget:extend(function()
+return Widget:extend(function(self)
   div({ class = "wishlist" }, function()
     ul(function()
       div({ class = "horizontal-line" }, function()
@@ -12,5 +12,10 @@ return Widget:extend(function()
         end
       end)
     end)
+  end)
+
+  form({ method = "POST", action = self:url_for "logout" }, function()
+    input { type = "hidden", name = "csrf_token", value = self.csrf_token }
+    button({ type = "submit" }, "Logout")
   end)
 end)

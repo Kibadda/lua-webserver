@@ -1,5 +1,8 @@
 local function no_logged_in_user(self)
   if self.route_name ~= "login" and not self.session.user then
+    if self.route_name then
+      self.session.rediret_to = self.route_name
+    end
     self:write { redirect_to = self:url_for "login" }
   end
 end

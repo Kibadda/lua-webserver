@@ -16,7 +16,33 @@ return function(app)
       end,
       POST = capture_errors(function(self)
         csrf.assert_token(self)
+
+        local User = require "models.User"
+
+        local user = User:verify(self.params)
+
+        if not user then
+          return { redirect_to = self:url_for "login" }
+        end
+
+        self.session.user = user
+
+        if self.session.redirect_to then
+          local redirect_to = self.session.redirect_to
+          self.session.redirect_to = nil
+          return { redirect_to = self:url_for(redirect_to) }
+        end
+
+        return { redirect_to = self:url_for "index" }
       end),
     }
   )
+
+  app:post("logout", "/logout", function(self)
+    csrf.assert_token(self)
+
+    self.session.user = nil
+
+    return { redirect_to = self:url_for "index" }
+  end)
 end
