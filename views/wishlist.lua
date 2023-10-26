@@ -3,14 +3,28 @@ local Widget = require("lapis.html").Widget
 
 local WishlistItem = require "models.WishlistItem"
 
+local items = WishlistItem:select()
+
 return Widget:extend(function(self)
+  h2("Was sich unser Baby für seine/ihre Geburt noch wünscht:")
+
   div({ class = "wishlist" }, function()
-    ul(function()
-      div({ class = "horizontal-line" }, function()
-        for _, item in ipairs(WishlistItem:select()) do
-          li(item.name)
-        end
+    if #items == 0 then
+      div({ class = "item" }, function()
+        div({ class = "name" }, "Wir haben schon alles...")
+        div({ class = "url" }, "Aber wir bedanken uns trotzdem :D")
       end)
-    end)
+    else
+      for _, item in ipairs(WishlistItem:select()) do
+        div({ class = "item" }, function()
+          div({ class = "name" }, item.name)
+          if item.url then
+            a({ class = "url", href = item.url, target = "_blank" }, item.url)
+          end
+        end)
+      end
+    end
   end)
+
+  p("Falls Ihr uns etwas von dieser Liste schenken möchtet, dann schreibt uns doch bitte an.")
 end)

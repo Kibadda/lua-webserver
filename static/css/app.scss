@@ -79,4 +79,29 @@ main {
       margin: .5rem;
     }
   }
+
+  .wishlist {
+    width: 25vw;
+
+    .item {
+      margin: .5rem;
+      display: flex;
+      flex-direction: column;
+      background-color: #CCC;
+      padding: .5rem;
+      border-radius: .5rem;
+
+      .name {
+        font-size: 1.5rem;
+      }
+
+      a {
+        color: $background_secondary;
+      }
+
+      .url {
+        font-size: .75rem;
+      }
+    }
+  }
 }
