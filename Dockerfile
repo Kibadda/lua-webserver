@@ -18,6 +18,8 @@ RUN luarocks install lsqlite3
 
 RUN luarocks install lapis
 
+RUN luarocks install bcrypt
+
 WORKDIR /home/lua-webserver
 
 EXPOSE 8080

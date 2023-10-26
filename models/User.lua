@@ -7,13 +7,8 @@ function User:verify(params)
     name = params.name,
   }
 
-  if not user then
-    return nil
-  end
-
-  -- TODO: better check
-  if params.password ~= user.password then
-    return nil
+  if not user or not require("bcrypt").verify(params.password, user.password) then
+    return nil, "wrong name or password"
   end
 
   return user
