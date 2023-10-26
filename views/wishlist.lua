@@ -13,11 +13,4 @@ return Widget:extend(function(self)
       end)
     end)
   end)
-
-  if self.session.user then
-    form({ method = "POST", action = self:url_for "logout" }, function()
-      input { type = "hidden", name = "csrf_token", value = self.csrf_token }
-      button({ type = "submit" }, "Logout")
-    end)
-  end
 end)

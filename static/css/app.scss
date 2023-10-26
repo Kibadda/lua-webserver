@@ -1,11 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-/* Pallet URL: https://coolors.co/433a3f-504e6a-beb7df-3c887e-f7d488 */
 
-$background: #433A3F;
-$background_secondary: #504E6A;
-$highlight_yellow: #F7D488;
-$highlight_cyan: #3C887E;
+$background: #FFF;
+$background_secondary: #3C887E;
 $highlight_grey: #BEB7DF;
 
 * {
@@ -13,85 +9,74 @@ $highlight_grey: #BEB7DF;
 }
 
 body {
-  font-family: 'Comic Neue', cursive;
+  font-family: 'Roboto';
   margin: 0;
-  height: 100%;
-  width: 100%;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle, rgba($background_secondary, 1) 0%, $background 100%);
+  height: 100vh;
+  width: 100vw;
+  background: $background;
+  overflow-y: hidden;
 }
 
-.wishlist {
-  font-size: 300%;
-  background: $highlight_yellow;
-  display: grid;
-  position: relative;
-  place-items: center;
-  margin: 5rem;
-  border-radius: 2px;
-
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 10px;
-    width: 40%;
-    height: 10px;
-    box-shadow: 0 10px 20px rgba(black, .7);
-    z-index: -1;
-    transition: all .3s ease-in-out;
-  }
-
-  &:before {
-    left: 15px;
-    transform: skew(-5deg) rotate(-5deg);
-  }
-
-  &:after {
-    right: 15px;
-    transform: skew(5deg) rotate(5deg);
-  }
-
-  &:hover:before,
-  &:hover:after {
-    box-shadow: 0 6px 14px rgba(black, .4);
-  }
-
-  &:hover:before {
-    left: 5px;
-  }
-
-  &:hover:after {
-    right: 5px;
-  }
-
-  .horizontal-line {
-    position: relative;
-    height: 100%;
-
-    &:before {
-      content: ' ';
-      padding: 3rem 0;
-      height: 100%;
-      top: -3rem;
-      left: 5.5rem;
-      position: absolute;
-      border-left: 3px dashed $highlight_cyan;
-    }
-  }
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  background: $background_secondary;
+  font-weight: bold;
 
   ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
     padding: 0;
-    list-style-type: none;
 
     li {
-      padding: .5rem 1.5rem .5rem 7rem;
-      border-top: 1px dashed $background;
+      a {
+        display: inline-block;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        line-height: 3rem;
 
-      &:last-child {
-        border-bottom: 1px dashed $background;
+        text-decoration: none;
+        color: black;
       }
+
+      &:hover,
+      &.active {
+        background: $highlight_grey;
+      }
+
+      &.auth {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+main {
+  width: 100%;
+  margin-top: 3rem;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  form.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 20vw;
+
+    input {
+      padding: .5rem;
+      margin: .5rem;
     }
   }
 }

@@ -2,7 +2,7 @@
 local Widget = require("lapis.html").Widget
 
 return Widget:extend(function(self)
-  form({ method = "POST", action = self:url_for "login" }, function()
+  form({ class = "login", method = "POST", action = self:url_for "login" }, function()
     input { type = "hidden", name = "csrf_token", value = self.csrf_token }
     input { type = "text", name = "name", placeholder = "Name" }
     input { type = "password", name = "password", placeholder = "Passwort" }

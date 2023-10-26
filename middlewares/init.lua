@@ -26,8 +26,16 @@ local function set_csrf_token(self)
   self.csrf_token = require("lapis.csrf").generate_token(self)
 end
 
+local function set_flash_from_session(self)
+  if self.session.flash then
+    self.flash = self.session.flash
+    self.session.flash = nil
+  end
+end
+
 return function(app)
   app:before_filter(redirect_if_not_logged_in)
   app:before_filter(redirect_if_logged_in)
   app:before_filter(set_csrf_token)
+  app:before_filter(set_flash_from_session)
 end

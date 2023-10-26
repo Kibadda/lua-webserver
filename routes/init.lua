@@ -22,9 +22,14 @@ return function(app)
 
         local User = require "models.User"
 
-        local user = User:verify(self.params)
+        local user, error = User:verify(self.params)
 
         if not user then
+          self.session.flash = {
+            message = error,
+            status = "error",
+          }
+
           return { redirect_to = self:url_for "login" }
         end
 
