@@ -1,6 +1,14 @@
 local schema = require "lapis.db.schema"
 local types = schema.types
 
+-- sqlite types:
+-- integer
+-- text
+-- blob
+-- real
+-- any
+-- numeric
+
 return {
   [1] = function()
     schema.create_table("users", {
