@@ -6,6 +6,7 @@ config({ "development", "production" }, {
     database = "database/db.sqlite",
   },
   session_name = "baby.strobel-suess.de",
+  bcrypt_rounds = 10,
 })
 
 config("development", {
