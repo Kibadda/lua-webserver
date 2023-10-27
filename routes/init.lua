@@ -8,6 +8,12 @@ return function(app)
     return { render = "wishlist" }
   end)
 
+  app:get("blog", "/blog", function(self)
+    self.title = "Blog"
+
+    return { render = "bloglist" }
+  end)
+
   app:match(
     "login",
     "/login",

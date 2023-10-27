@@ -7,6 +7,11 @@ local sites = {
     name = "index",
     logged_in = false,
   },
+  {
+    text = "Blog",
+    name = "blog",
+    logged_in = true,
+  },
 }
 
 return Widget:extend(function(self)
