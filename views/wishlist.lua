@@ -12,13 +12,8 @@ return Widget:extend(function()
     h2 "Was sich unser Baby für seine/ihre Geburt noch wünscht:"
 
     div({ class = "wishlist" }, function()
-      for _, item in ipairs(Item:select()) do
-        div({ class = "item" }, function()
-          div({ class = "name" }, item.name)
-          if item.url then
-            a({ class = "url", href = item.url, target = "_blank" }, item.url)
-          end
-        end)
+      for _, item in ipairs(items) do
+        widget(item:html())
       end
     end)
 
