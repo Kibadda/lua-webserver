@@ -10,7 +10,7 @@ local function redirect_if_not_logged_in(self)
 
   if not self.session.user then
     if self.route_name then
-      self.session.rediret_to = self.route_name
+      self.session.redirect_to = self.route_name
     end
     self:write { redirect_to = self:url_for "login" }
   end
