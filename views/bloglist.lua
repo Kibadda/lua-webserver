@@ -7,6 +7,6 @@ local blogs = Blog:select "order by created_at desc"
 
 return Widget:extend(function()
   for _, blog in ipairs(blogs) do
-    widget(blog:card())
+    widget(blog:html())
   end
 end)

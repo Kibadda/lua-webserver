@@ -7,7 +7,7 @@ local Blog, Blog_mt = Model:extend("blogs", {
   timestamp = true,
 })
 
-function Blog_mt:card()
+function Blog_mt:html()
   local blog = self
   return Widget:extend(function()
     article({ class = "blog" }, function()
