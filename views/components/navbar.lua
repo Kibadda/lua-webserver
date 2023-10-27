@@ -4,7 +4,7 @@ local Widget = require("lapis.html").Widget
 local sites = {
   {
     text = "Wunschliste",
-    name = "index",
+    name = "wishlist",
     logged_in = false,
   },
   {

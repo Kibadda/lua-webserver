@@ -1,6 +1,6 @@
 local function redirect_if_not_logged_in(self)
   local exceptions = {
-    index = true,
+    wishlist = true,
     login = true,
   }
 
@@ -9,16 +9,14 @@ local function redirect_if_not_logged_in(self)
   end
 
   if not self.session.user then
-    if self.route_name then
-      self.session.redirect_to = self.route_name
-    end
+    self.session.redirect_to = self.route_name
     self:write { redirect_to = self:url_for "login" }
   end
 end
 
 local function redirect_if_logged_in(self)
   if self.session.user and self.route_name == "login" then
-    self:write { redirect_to = self:url_for "index" }
+    self:write { redirect_to = "/" }
   end
 end
 
