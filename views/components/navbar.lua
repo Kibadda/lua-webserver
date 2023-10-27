@@ -5,6 +5,7 @@ local sites = {
   {
     text = "Wunschliste",
     name = "index",
+    logged_in = false,
   },
 }
 
@@ -12,9 +13,11 @@ return Widget:extend(function(self)
   nav(function()
     ul(function()
       for _, site in ipairs(sites) do
-        li({ class = self.route_name == site.name and "active" or nil }, function()
-          a({ href = self:url_for(site.name) }, site.text)
-        end)
+        if not site.logged_in or self.session.user then
+          li({ class = self.route_name == site.name and "active" or nil }, function()
+            a({ href = self:url_for(site.name) }, site.text)
+          end)
+        end
       end
 
       if self.flash then
