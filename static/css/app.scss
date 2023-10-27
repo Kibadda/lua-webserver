@@ -67,7 +67,8 @@ main {
   flex-direction: column;
   align-items: center;
 
-  form.login {
+  form.login,
+  form.item-create {
     display: flex;
     flex-direction: column;
     align-items: center;

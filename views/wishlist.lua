@@ -5,7 +5,11 @@ local Item = require "models.Item"
 
 local items = Item:select "where buyer is null"
 
-return Widget:extend(function()
+return Widget:extend(function(self)
+  if self.session.user and self.session.user.is_admin then
+    widget(Item:form())
+  end
+
   if #items == 0 then
     h2 "🎉 Im Moment haben wir schon alles. 🎉"
   else
