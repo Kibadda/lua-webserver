@@ -27,6 +27,11 @@ case "$1" in
     sqlite3 database/db.sqlite
     ;;
 
+  seed)
+    echo "seeding admin user"
+    lapis exec 'require"seed"'
+    ;;
+
   *)
     echo "$1 is not a valid option"
     exit 1
