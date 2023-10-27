@@ -59,8 +59,8 @@ nav {
 
 main {
   width: 100%;
-  margin-top: 3rem;
   padding: 2rem;
+  padding-top: 5rem;
 
   display: flex;
   flex-direction: column;
@@ -80,7 +80,7 @@ main {
   }
 
   .wishlist {
-    width: 25vw;
+    width: 25%;
 
     .item {
       margin: .5rem;
@@ -101,6 +101,24 @@ main {
       .url {
         font-size: .75rem;
       }
+    }
+  }
+
+  @media only screen and (max-width: 1500px) {
+    .wishlist {
+      width: 40%;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .wishlist {
+      width: 60%;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    .wishlist {
+      width: 100%;
     }
   }
 }
