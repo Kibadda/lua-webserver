@@ -3,10 +3,13 @@ local types = schema.types
 
 return {
   [1] = function()
-    schema.create_table("wishlist_items", {
+    schema.create_table("items", {
       { "id", types.integer { primary_key = true } },
       { "name", types.text },
       { "url", types.text { null = true } },
+      { "buyer", types.text { null = true } },
+      { "created_at", types.text },
+      { "updated_at", types.text },
     })
   end,
   [2] = function()
@@ -15,6 +18,8 @@ return {
       { "name", types.text },
       { "password", types.text },
       { "is_admin", types.integer { default = 0 } },
+      { "created_at", types.text },
+      { "updated_at", types.text },
     })
   end,
 }

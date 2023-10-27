@@ -1,9 +1,9 @@
 ---@diagnostic disable:undefined-global
 local Widget = require("lapis.html").Widget
 
-local WishlistItem = require "models.WishlistItem"
+local Item = require "models.Item"
 
-local items = WishlistItem:select()
+local items = Item:select()
 
 return Widget:extend(function(self)
   h2("Was sich unser Baby für seine/ihre Geburt noch wünscht:")
@@ -15,7 +15,7 @@ return Widget:extend(function(self)
         div({ class = "url" }, "Aber wir bedanken uns trotzdem :D")
       end)
     else
-      for _, item in ipairs(WishlistItem:select()) do
+      for _, item in ipairs(Item:select()) do
         div({ class = "item" }, function()
           div({ class = "name" }, item.name)
           if item.url then

@@ -1,6 +1,8 @@
 local Model = require("lapis.db.model").Model
 
-local User = Model:extend "users"
+local User = Model:extend("users", {
+  timestamp = true,
+})
 
 function User:verify(params)
   local user = User:find {
