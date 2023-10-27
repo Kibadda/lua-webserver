@@ -5,8 +5,8 @@ local Item = require "models.Item"
 
 local items = Item:select()
 
-return Widget:extend(function(self)
-  h2("Was sich unser Baby für seine/ihre Geburt noch wünscht:")
+return Widget:extend(function()
+  h2 "Was sich unser Baby für seine/ihre Geburt noch wünscht:"
 
   div({ class = "wishlist" }, function()
     if #items == 0 then
@@ -26,5 +26,5 @@ return Widget:extend(function(self)
     end
   end)
 
-  p("Falls Ihr uns etwas von dieser Liste schenken möchtet, dann schreibt uns doch bitte an.")
+  p "Falls Ihr uns etwas von dieser Liste schenken möchtet, dann schreibt uns doch bitte an."
 end)

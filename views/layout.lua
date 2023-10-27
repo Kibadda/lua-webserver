@@ -1,7 +1,7 @@
 ---@diagnostic disable:undefined-global
 local Widget = require("lapis.html").Widget
 
-local Navbar = require("views.components.navbar")
+local Navbar = require "views.components.navbar"
 
 return Widget:extend(function(self)
   raw "<!DOCTYPE HTML>"
