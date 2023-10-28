@@ -2,7 +2,7 @@ FROM debian:bookworm
 
 RUN apt-get update
 
-RUN apt-get -y install --no-install-recommends wget gnupg ca-certificates build-essential sqlite3
+RUN apt-get -y install --no-install-recommends wget gnupg ca-certificates build-essential sqlite3 npm
 
 RUN wget -O - https://openresty.org/package/pubkey.gpg | apt-key add -
 
@@ -21,6 +21,8 @@ RUN luarocks install lsqlite3
 RUN luarocks install lapis
 
 RUN luarocks install bcrypt
+
+RUN npm install -g sass
 
 WORKDIR /home/lua-webserver
 

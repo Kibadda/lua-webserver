@@ -32,6 +32,12 @@ case "$1" in
     lapis exec 'require"seed"'
     ;;
 
+  sass)
+    echo "compiling scss"
+    sass static/css/app.scss static/css/app.css -w
+    exit 0
+    ;;
+
   *)
     echo "$1 is not a valid option"
     exit 1
