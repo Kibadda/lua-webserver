@@ -20,3 +20,6 @@ serve:
 
 sass:
 	docker run -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest sass
+
+production:
+	docker run -p 80:8080 -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest production

@@ -41,6 +41,12 @@ case "$1" in
     exit 0
     ;;
 
+  production)
+    echo "serving production server"
+    lapis serve production
+    exit 0
+    ;;
+
   *)
     echo "$1 is not a valid option"
     exit 1
