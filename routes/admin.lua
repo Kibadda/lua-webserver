@@ -1,5 +1,6 @@
 local capture_errors = require("lapis.application").capture_errors
 local assert_error = require("lapis.application").assert_error
+local cache = require("lapis.cache")
 
 return function(app)
   app:post(
@@ -14,6 +15,8 @@ return function(app)
         name = self.params.name,
         url = self.params.url,
       }
+
+      cache.delete_path "/"
 
       return { redirect_to = self:url_for "wishlist" }
     end)
@@ -30,6 +33,8 @@ return function(app)
       local item = assert_error(Item:find(self.params.id))
 
       item:update { buyer = self.params.buyer or "" }
+
+      cache.delete_path "/"
 
       return { redirect_to = self:url_for "wishlist" }
     end)

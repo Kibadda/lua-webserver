@@ -1,9 +1,16 @@
-return function(app)
-  app:get("wishlist", "/", function(self)
-    self.title = "Wunschliste"
+local cached = require("lapis.cache").cached
 
-    return { render = true }
-  end)
+return function(app)
+  app:get("wishlist", "/", cached {
+    when = function(self)
+      return not self.session.user
+    end,
+    function(self)
+      self.title = "Wunschliste"
+
+      return { render = true }
+    end,
+  })
 
   app:get("blog", "/blog", function(self)
     self.title = "Blog"
