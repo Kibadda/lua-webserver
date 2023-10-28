@@ -7,18 +7,15 @@ config({ "development", "production" }, {
   },
   session_name = "baby.strobel-suess.de",
   bcrypt_rounds = 10,
-})
-
-config("development", {
   code_cache = "off",
   num_workers = "1",
   deamon = "off",
 })
 
 config("production", {
-  code_cache = "on",
+  -- code_cache = "off",
+  -- deamon = "off",
   num_workers = "5",
-  deamon = "on",
 })
 
 config({ "development", "production" }, require "secret")

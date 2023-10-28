@@ -20,16 +20,19 @@ case "$1" in
   bash)
     echo "starting interactive bash"
     bash
+    exit 0
     ;;
 
   db)
     echo "starting database"
     sqlite3 database/db.sqlite
+    exit 0
     ;;
 
   seed)
     echo "seeding admin user"
     lapis exec 'require"seed"'
+    exit 0
     ;;
 
   sass)
