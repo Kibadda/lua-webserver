@@ -33,7 +33,7 @@ function Item_mt:html()
         a({ class = "url", href = item.url, target = "_blank" }, "Link")
       end
 
-      if context.session.user and context.session.user.is_admin then
+      if not item.buyer and context.session.user and context.session.user.is_admin then
         form({ method = "POST", action = context:url_for("wishlist.edit", { id = item.id }) }, function()
           input { type = "hidden", name = "csrf_token", value = context.csrf_token }
           input { type = "text", name = "buyer" }
