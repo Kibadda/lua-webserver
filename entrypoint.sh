@@ -23,6 +23,12 @@ case "$1" in
     exit 0
     ;;
 
+  backup)
+    echo "backing up database"
+    dt=$(date '+%Y-%m-%dT%H:%M:%S')
+    sqlite3 database/db.sqlite ".backup 'sqlite-backups/$dt.sqlite.bak'"
+    ;;
+
   sass)
     echo "compiling scss"
     sass static/css/app.scss static/css/app.css -w

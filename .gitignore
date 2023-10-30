@@ -11,3 +11,4 @@ secret.lua
 database/db.sqlite
 static/images/
 certificates/
+sqlite-backups/

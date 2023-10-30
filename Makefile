@@ -1,4 +1,4 @@
-.PHONY: default bash db migrate sass seed serve production
+.PHONY: default bash db migrate backup sass seed serve production
 
 default:
 	echo -e "Available targets: \n  build\n  bash\n  db\n  migrate\n  sass\n  seed\n  serve\n  production\n"
@@ -14,6 +14,9 @@ db:
 
 migrate:
 	docker run -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest migrate
+
+backup:
+	docker run -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest backup
 
 sass:
 	docker run -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest sass
