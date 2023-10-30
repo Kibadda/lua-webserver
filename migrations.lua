@@ -31,16 +31,6 @@ return {
     })
   end,
   [3] = function()
-    schema.create_table("blogs", {
-      { "id", types.integer { primary_key = true } },
-      { "title", types.text },
-      { "description", types.text },
-      { "picture", types.text },
-      { "created_at", types.text },
-      { "updated_at", types.text },
-    })
-  end,
-  [4] = function()
     schema.create_table("guesses", {
       { "id", types.integer { primary_key = true } },
       { "name", types.text },
@@ -50,4 +40,14 @@ return {
       { "updated_at", types.text },
     })
   end,
+  -- [4] = function()
+  --   schema.create_table("blogs", {
+  --     { "id", types.integer { primary_key = true } },
+  --     { "title", types.text },
+  --     { "description", types.text },
+  --     { "picture", types.text },
+  --     { "created_at", types.text },
+  --     { "updated_at", types.text },
+  --   })
+  -- end,
 }

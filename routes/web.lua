@@ -18,21 +18,6 @@ return function(app)
   )
 
   app:get(
-    "blog",
-    "/blog",
-    cached {
-      when = function(self)
-        return not self.session.user.is_admin and config.cache
-      end,
-      function(self)
-        self.title = "Blog"
-
-        return { render = true }
-      end,
-    }
-  )
-
-  app:get(
     "calendar",
     "/kalender",
     cached {
@@ -74,4 +59,19 @@ return function(app)
       end,
     }
   )
+
+  -- app:get(
+  --   "blog",
+  --   "/blog",
+  --   cached {
+  --     when = function(self)
+  --       return not self.session.user.is_admin and config.cache
+  --     end,
+  --     function(self)
+  --       self.title = "Blog"
+
+  --       return { render = true }
+  --     end,
+  --   }
+  -- )
 end
