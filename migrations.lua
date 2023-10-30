@@ -35,7 +35,7 @@ return {
       { "id", types.integer { primary_key = true } },
       { "title", types.text },
       { "description", types.text },
-      { "picture", types.blob { null = true } },
+      { "picture", types.text },
       { "created_at", types.text },
       { "updated_at", types.text },
     })
