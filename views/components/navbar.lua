@@ -12,6 +12,11 @@ local sites = {
     name = "blog",
     logged_in = true,
   },
+  {
+    text = "Kalender",
+    name = "calendar",
+    logged_in = true,
+  },
 }
 
 return Widget:extend(function(self)

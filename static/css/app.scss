@@ -69,7 +69,8 @@ main {
   align-items: center;
 
   form.login,
-  form.item-create {
+  form.item-create,
+  form.guess-create {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -182,5 +183,9 @@ main {
     .wishlist {
       width: 100%;
     }
+  }
+
+  #calendar {
+    width: 100%;
   }
 }

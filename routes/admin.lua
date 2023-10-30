@@ -39,4 +39,24 @@ return function(app)
       return { redirect_to = self:url_for "wishlist" }
     end)
   )
+
+  app:post(
+    "guess.create",
+    "/guess",
+    capture_errors(function(self)
+      require("lapis.csrf").assert_token(self)
+
+      local Guess = require "models.Guess"
+
+      Guess:create {
+        name = self.params.name,
+        date = self.params.date,
+        gender = self.params.gender,
+      }
+
+      cache.delete_path "/kalender"
+
+      return { redirect_to = self:url_for "calendar" }
+    end)
+  )
 end

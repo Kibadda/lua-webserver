@@ -40,4 +40,14 @@ return {
       { "updated_at", types.text },
     })
   end,
+  [4] = function()
+    schema.create_table("guesses", {
+      { "id", types.integer { primary_key = true } },
+      { "name", types.text },
+      { "date", types.text },
+      { "gender", types.text },
+      { "created_at", types.text },
+      { "updated_at", types.text },
+    })
+  end,
 }
