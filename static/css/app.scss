@@ -68,6 +68,16 @@ main {
   flex-direction: column;
   align-items: center;
 
+  .flash {
+    &.error {
+      color: red;
+    }
+
+    &.success {
+      color: green;
+    }
+  }
+
   form.login,
   form.item-create,
   form.guess-create {
