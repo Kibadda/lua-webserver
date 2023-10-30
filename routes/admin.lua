@@ -1,6 +1,6 @@
 local capture_errors = require("lapis.application").capture_errors
 local assert_error = require("lapis.application").assert_error
-local cache = require("lapis.cache")
+local cache = require "lapis.cache"
 
 return function(app)
   app:post(

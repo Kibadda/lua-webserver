@@ -11,7 +11,7 @@ for _, user_data in ipairs(config.admins or {}) do
     User:create {
       name = user_data.name,
       password = password,
-      is_admin = 1
+      is_admin = 1,
     }
   end
 end
