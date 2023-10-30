@@ -1,4 +1,5 @@
 local cached = require("lapis.cache").cached
+local config = require("lapis.config").get()
 
 return function(app)
   app:get(
@@ -6,7 +7,7 @@ return function(app)
     "/",
     cached {
       when = function(self)
-        return not self.session.user
+        return not self.session.user and config.cache
       end,
       function(self)
         self.title = "Wunschliste"

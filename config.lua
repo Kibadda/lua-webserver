@@ -2,6 +2,7 @@ local config = require "lapis.config"
 
 config({ "development", "production" }, {
   server = "nginx",
+  cache = false,
   sqlite = {
     database = "database/db.sqlite",
   },
@@ -14,6 +15,7 @@ config({ "development", "production" }, {
 })
 
 config("production", {
+  cache = true,
   num_workers = "5",
   port = "443 ssl",
   nginx_ssl = [[
