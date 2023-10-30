@@ -19,14 +19,14 @@ return Widget:extend(function(self)
     ul(function()
       for _, site in ipairs(sites) do
         if not site.logged_in or self.session.user then
-          li({ class = self.route_name == site.name and "active" or nil }, function()
+          li({ class = { active = self.route_name == site.name } }, function()
             a({ href = self:url_for(site.name) }, site.text)
           end)
         end
       end
 
       if self.flash then
-        div({ class = self.flash.status .. " flash" }, self.flash.message)
+        div({ class = { self.flash.status, "flash" } }, self.flash.message)
       end
 
       if self.session.user then
@@ -38,7 +38,7 @@ return Widget:extend(function(self)
           a({ href = "#", id = "logout-button" }, "Logout")
         end)
       else
-        li({ class = "auth" .. (self.route_name == "login" and " active" or "") }, function()
+        li({ class = { "auth", active = self.route_name == "login" } }, function()
           a({ href = self:url_for "login" }, "Login")
         end)
       end
