@@ -22,4 +22,4 @@ sass:
 	docker run -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest sass
 
 production:
-	docker run -p 80:80 -p 443:443 -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest production
+	docker run -d -p 80:80 -p 443:443 -it --mount type=bind,source="$(PWD)",target=/home/lua-webserver lua-webserver:latest production
