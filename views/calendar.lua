@@ -9,7 +9,7 @@ return Widget:extend(function(self)
     widget(Guess:form())
   end
 
-  script { src = "https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js" }
+  script { src = "/static/js/libs/fullcalendar.js" }
 
   div { id = "calendar", ["data-date"] = config.calculated_date }
 end)
