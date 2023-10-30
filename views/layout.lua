@@ -14,6 +14,8 @@ return Widget:extend(function(self)
 
       link { rel = "stylesheet", href = "/static/css/app.css" }
       script { type = "text/javascript", src = "/static/js/app.js", defer = true }
+
+      self:content_for "head"
     end)
 
     body(function()

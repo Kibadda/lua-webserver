@@ -5,11 +5,13 @@ local config = require("lapis.config").get()
 local Guess = require "models.Guess"
 
 return Widget:extend(function(self)
+  self:content_for("head", function()
+    script { src = "/static/js/libs/fullcalendar.js" }
+  end)
+
   if self.session.user.is_admin then
     widget(Guess:form())
   end
-
-  script { src = "/static/js/libs/fullcalendar.js" }
 
   div { id = "calendar", ["data-date"] = config.calculated_date }
 end)
