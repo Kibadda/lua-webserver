@@ -26,8 +26,4 @@ RUN npm install -g sass
 
 WORKDIR /home/lua-webserver
 
-EXPOSE 8080
-
-VOLUME /home/lua-webserver
-
 ENTRYPOINT ["./entrypoint.sh"]

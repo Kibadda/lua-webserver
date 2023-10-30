@@ -5,18 +5,6 @@ if [ $# -eq 0 ]; then
 fi
 
 case "$1" in 
-  migrate)
-    echo "migrating database"
-    lapis migrate
-    exit 0
-    ;;
-
-  serve)
-    echo "serving web application"
-    lapis serve
-    exit 0
-    ;;
-
   bash)
     echo "starting interactive bash"
     bash
@@ -29,15 +17,27 @@ case "$1" in
     exit 0
     ;;
 
-  seed)
-    echo "seeding admin user"
-    lapis exec 'require"seed"'
+  migrate)
+    echo "migrating database"
+    lapis migrate
     exit 0
     ;;
 
   sass)
     echo "compiling scss"
     sass static/css/app.scss static/css/app.css -w
+    exit 0
+    ;;
+
+  seed)
+    echo "seeding admin user"
+    lapis exec 'require"seed"'
+    exit 0
+    ;;
+
+  serve)
+    echo "serving web application"
+    lapis serve
     exit 0
     ;;
 
