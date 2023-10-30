@@ -20,7 +20,7 @@ end
 function Item_mt:html()
   local item = self
   return Widget:extend(function(context)
-    div({ class = "item" }, function()
+    div({ class = { "item", done = item.buyer } }, function()
       div({ class = "name" }, function()
         if item.buyer then
           del(item.name)

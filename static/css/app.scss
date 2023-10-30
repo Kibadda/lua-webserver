@@ -103,6 +103,10 @@ main {
       .url {
         font-size: .75rem;
       }
+
+      &.done {
+        opacity: .5;
+      }
     }
   }
 
