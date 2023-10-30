@@ -21,9 +21,16 @@ function Item_mt:html()
   local item = self
   return Widget:extend(function(context)
     div({ class = "item" }, function()
-      div({ class = "name" }, item.name)
+      div({ class = "name" }, function()
+        if item.buyer then
+          del(item.name)
+        else
+          text(item.name)
+        end
+      end)
+
       if item.url then
-        a({ class = "url", href = item.url, target = "_blank" }, item.url)
+        a({ class = "url", href = item.url, target = "_blank" }, "Link")
       end
 
       if context.session.user and context.session.user.is_admin then

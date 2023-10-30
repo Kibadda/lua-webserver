@@ -5,17 +5,28 @@ config({ "development", "production" }, {
   sqlite = {
     database = "database/db.sqlite",
   },
-  session_name = "baby.strobel-suess.de",
+  session_name = "baby.strobel-süß.de",
   bcrypt_rounds = 10,
-  code_cache = "off",
   num_workers = "1",
-  deamon = "off",
+  port = "80",
+  nginx_ssl = "",
+  nginx_ssl_certificates = "",
 })
 
 config("production", {
-  -- code_cache = "off",
-  -- deamon = "off",
   num_workers = "5",
+  port = "443 ssl",
+  nginx_ssl = [[
+  server {
+    listen 80;
+    server_name _;
+    return 301 https://$host$request_uri;
+  }
+  ]],
+  nginx_ssl_certificates = [[
+  ssl_certificate /home/lua-webserver/certificates/fullchain.pem;
+  ssl_certificate_key /home/lua-webserver/certificates/privkey.pem;
+  ]],
 })
 
 config({ "development", "production" }, require "secret")

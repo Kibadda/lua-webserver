@@ -172,4 +172,10 @@ main {
       }
     }
   }
+
+  @media only screen and (max-width: 650px) {
+    .wishlist {
+      width: 100%;
+    }
+  }
 }
