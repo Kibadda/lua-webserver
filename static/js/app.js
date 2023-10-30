@@ -23,8 +23,8 @@ if (calendarElement) {
               start: calendarElement.dataset.date,
             },
           ],
-          color: 'red',
-          textColor: 'black',
+          color: 'black',
+          textColor: 'white',
         },
         {
           url: '/kalender',
