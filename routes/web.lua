@@ -22,7 +22,7 @@ return function(app)
     "/kalender",
     cached {
       when = function(self)
-        return not self.session.user.is_admin and config.cache
+        return not self.session.user and config.cache
       end,
       function(self)
         self.title = "Kalender"
