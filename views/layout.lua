@@ -10,7 +10,7 @@ local sites = {
   {
     text = "Kalender",
     name = "calendar",
-    logged_in = true,
+    logged_in = false,
   },
   -- {
   --   text = "Blog",

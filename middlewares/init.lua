@@ -1,6 +1,7 @@
 local function redirect_if_not_logged_in(self)
   local exceptions = {
     wishlist = true,
+    calendar = true,
     login = true,
   }
 
