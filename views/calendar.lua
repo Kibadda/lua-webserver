@@ -9,7 +9,7 @@ return Widget:extend(function(self)
     script { src = "/static/js/libs/fullcalendar.js" }
   end)
 
-  if self.session.user.is_admin then
+  if self.session.user and self.session.user.is_admin then
     widget(Guess:form())
   end
 
