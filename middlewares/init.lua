@@ -1,19 +1,19 @@
-local function redirect_if_not_logged_in(self)
-  local exceptions = {
-    wishlist = true,
-    calendar = true,
-    login = true,
-  }
+-- local function redirect_if_not_logged_in(self)
+--   local exceptions = {
+--     wishlist = true,
+--     calendar = true,
+--     login = true,
+--   }
 
-  if exceptions[self.route_name] then
-    return
-  end
+--   if exceptions[self.route_name] then
+--     return
+--   end
 
-  if not self.session.user then
-    self.session.redirect_to = self.route_name
-    self:write { redirect_to = self:url_for "login" }
-  end
-end
+--   if not self.session.user then
+--     self.session.redirect_to = self.route_name
+--     self:write { redirect_to = self:url_for "login" }
+--   end
+-- end
 
 local function redirect_if_logged_in(self)
   if self.session.user and self.route_name == "login" then
@@ -33,7 +33,7 @@ local function set_flash_from_session(self)
 end
 
 return function(app)
-  app:before_filter(redirect_if_not_logged_in)
+  -- app:before_filter(redirect_if_not_logged_in)
   app:before_filter(redirect_if_logged_in)
   app:before_filter(set_csrf_token)
   app:before_filter(set_flash_from_session)

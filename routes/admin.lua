@@ -1,5 +1,6 @@
 local capture_errors = require("lapis.application").capture_errors
 local assert_error = require("lapis.application").assert_error
+local yield_error = require("lapis.application").yield_error
 local cache = require "lapis.cache"
 
 return function(app)
@@ -7,6 +8,10 @@ return function(app)
     "wishlist.create",
     "/wunschliste",
     capture_errors(function(self)
+      if not self.session.user or not self.session.user.is_admin then
+        yield_error "not enough power"
+      end
+
       require("lapis.csrf").assert_token(self)
 
       local Item = require "models.Item"
@@ -26,6 +31,10 @@ return function(app)
     "wishlist.edit",
     "/wunschliste/:id",
     capture_errors(function(self)
+      if not self.session.user or not self.session.user.is_admin then
+        yield_error "not enough power"
+      end
+
       require("lapis.csrf").assert_token(self)
 
       local Item = require "models.Item"
@@ -44,6 +53,10 @@ return function(app)
     "guess.create",
     "/guess",
     capture_errors(function(self)
+      if not self.session.user or not self.session.user.is_admin then
+        yield_error "not enough power"
+      end
+
       require("lapis.csrf").assert_token(self)
 
       local Guess = require "models.Guess"
