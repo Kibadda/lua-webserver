@@ -40,6 +40,16 @@ return {
       { "updated_at", types.text },
     })
   end,
+  [4] = function()
+    schema.create_table("events", {
+      { "id", types.integer { primary_key = true } },
+      { "title", types.text },
+      { "description", types.text },
+      { "date", types.text },
+      { "created_at", types.text },
+      { "updated_at", types.text },
+    })
+  end,
   -- [4] = function()
   --   schema.create_table("blogs", {
   --     { "id", types.integer { primary_key = true } },

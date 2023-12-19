@@ -12,6 +12,11 @@ local sites = {
     name = "calendar",
     logged_in = false,
   },
+  {
+    text = "Zeitlinie",
+    name = "timeline",
+    logged_in = false,
+  }
   -- {
   --   text = "Blog",
   --   name = "blog",

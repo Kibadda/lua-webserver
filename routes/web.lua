@@ -60,6 +60,21 @@ return function(app)
     }
   )
 
+  app:get(
+    "timeline",
+    "/zeitlinie",
+    cached {
+      when = function(self)
+        return not self.session.user and config.cache
+      end,
+      function(self)
+        self.title = "Zeitlinie"
+
+        return { render = true }
+      end
+    }
+  )
+
   -- app:get(
   --   "blog",
   --   "/blog",
