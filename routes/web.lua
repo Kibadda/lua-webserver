@@ -32,12 +32,12 @@ return function(app)
     }
   )
 
-  app:post(
-    "calendar",
-    "/kalender",
+  app:get(
+    "guesses",
+    "/kalender/tipps",
     cached {
       when = function(self)
-        return not self.session.user.is_admin and config.cache
+        return not self.session.user and config.cache
       end,
       function()
         local Guess = require "models.Guess"

@@ -27,8 +27,7 @@ if (calendarElement) {
           textColor: 'white',
         },
         {
-          url: '/kalender',
-          method: 'POST',
+          url: calendarElement.dataset.url,
         },
       ]
     });

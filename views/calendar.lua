@@ -13,5 +13,5 @@ return Widget:extend(function(self)
     widget(Guess:form())
   end
 
-  div { id = "calendar", ["data-date"] = config.calculated_date }
+  div { id = "calendar", ["data-url"] = self:url_for "guesses", ["data-date"] = config.calculated_date }
 end)
